@@ -11,6 +11,8 @@ View(app.data)
 dim(app.data)
 table(app.data$TARGET)
 prop.table(table(app.data$TARGET))
+
+
 ########is.na(app.data) = app.data == "NULL"
 
 #Removing NA values
@@ -44,6 +46,9 @@ app.data$DEF_30_CNT_SOCIAL_CIRCLE[is.na(app.data$DEF_30_CNT_SOCIAL_CIRCLE)]= 0
 
 app.data$DEF_60_CNT_SOCIAL_CIRCLE[is.na(app.data$DEF_60_CNT_SOCIAL_CIRCLE)]= 0
 summary(app.data)
+
+
+
 #Checking for factors or numericals
 
 app.data$SK_ID_CURR = as.factor(app.data$SK_ID_CURR)
@@ -80,9 +85,7 @@ app.data$FLAG_DOCUMENT_18 = as.factor(app.data$FLAG_DOCUMENT_18)
 app.data$FLAG_DOCUMENT_19 = as.factor(app.data$FLAG_DOCUMENT_19)
 app.data$FLAG_DOCUMENT_20 = as.factor(app.data$FLAG_DOCUMENT_20)
 app.data$FLAG_DOCUMENT_21 = as.factor(app.data$FLAG_DOCUMENT_21)
-
 app.data$REGION_RATING_CLIENT = as.factor(app.data$REGION_RATING_CLIENT)     
 app.data$REGION_RATING_CLIENT_W_CITY = as.factor(app.data$REGION_RATING_CLIENT_W_CITY)
-
 
 str(app.data, list.len = ncol(app.data))
