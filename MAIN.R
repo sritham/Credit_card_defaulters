@@ -141,6 +141,102 @@ app.data$REGION_RATING_CLIENT_W_CITY = as.factor(app.data$REGION_RATING_CLIENT_W
 
 str(app.data, list.len = ncol(app.data))
 
+#Convert NA's of Normalized variables
+
+app.data$LANDAREA_MODE[is.na(app.data$LANDAREA_MODE)] = 0.05
+
+app.data$FLOORSMIN_MODE[is.na(app.data$FLOORSMIN_MODE)] = 0.21
+
+app.data$FLOORSMAX_MODE[is.na(app.data$FLOORSMAX_MODE)] = 0.17
+
+app.data$ENTRANCES_MODE[is.na(app.data$ENTRANCES_MODE)] = 0.14
+
+app.data$ELEVATORS_MODE[is.na(app.data$ELEVATORS_MODE)] = 0
+
+app.data$COMMONAREA_MODE[is.na(app.data$COMMONAREA_MODE)] = 0.02
+
+app.data$YEARS_BUILD_MODE[is.na(app.data$YEARS_BUILD_MODE)] = 0.76
+
+app.data$YEARS_BEGINEXPLUATATION_MODE[is.na(app.data$YEARS_BEGINEXPLUATATION_MODE)] = 0.98
+
+app.data$BASEMENTAREA_MODE[is.na(app.data$BASEMENTAREA_MODE)] = 0.07
+
+app.data$APARTMENTS_MODE[is.na(app.data$APARTMENTS_MODE)] = 0.08
+
+app.data$NONLIVINGAREA_AVG[is.na(app.data$NONLIVINGAREA_AVG)] = 0
+
+app.data$NONLIVINGAPARTMENTS_AVG[is.na(app.data$NONLIVINGAPARTMENTS_AVG)] = 0
+
+app.data$LIVINGAREA_AVG[is.na(app.data$LIVINGAREA_AVG)] = 0.07
+
+app.data$LIVINGAPARTMENTS_AVG[is.na(app.data$LIVINGAPARTMENTS_AVG)] = 0.08
+
+app.data$LANDAREA_AVG[is.na(app.data$LANDAREA_AVG)] = 0.05
+
+app.data$FLOORSMIN_AVG[is.na(app.data$FLOORSMIN_AVG)] = 0.21
+
+app.data$FLOORSMAX_AVG[is.na(app.data$FLOORSMAX_AVG)] = 0.17
+
+app.data$ENTRANCES_AVG[is.na(app.data$ENTRANCES_AVG)] = 0.14
+
+app.data$ELEVATORS_AVG[is.na(app.data$ELEVATORS_AVG)] = 0
+
+app.data$COMMONAREA_AVG[is.na(app.data$COMMONAREA_AVG)] = 0.02
+
+app.data$YEARS_BUILD_AVG[is.na(app.data$YEARS_BUILD_AVG)] = 0.76
+
+app.data$YEARS_BEGINEXPLUATATION_AVG[is.na(app.data$YEARS_BEGINEXPLUATATION_AVG)] = 0.98
+
+app.data$BASEMENTAREA_AVG[is.na(app.data$BASEMENTAREA_AVG)] = 0.08
+
+app.data$APARTMENTS_AVG[is.na(app.data$APARTMENTS_AVG)] = 0.09
+
+app.data$EXT_SOURCE_3[is.na(app.data$EXT_SOURCE_3)] = 0.54
+
+app.data$EXT_SOURCE_2[is.na(app.data$EXT_SOURCE_2)] = 0.5661
+  
+app.data$EXT_SOURCE_1[is.na(app.data$EXT_SOURCE_1)] = 0.51
+
+#Convert character NA's into 'Not Applicable' 
+
+app.data$TOTALAREA_MODE[is.na(app.data$TOTALAREA_MODE)] <- "Not Applicable"
+
+app.data$NONLIVINGAREA_MEDI[is.na(app.data$NONLIVINGAREA_MEDI)] <- "Not Applicable"
+
+app.data$NONLIVINGAPARTMENTS_MEDI[is.na(app.data$NONLIVINGAPARTMENTS_MEDI)] <- "Not Applicable"
+
+app.data$LIVINGAREA_MEDI[is.na(app.data$LIVINGAREA_MEDI)] <- "Not Applicable"
+
+app.data$LIVINGAPARTMENTS_MEDI[is.na(app.data$LIVINGAPARTMENTS_MEDI)] <- "Not Applicable"
+
+app.data$LANDAREA_MEDI[is.na(app.data$LANDAREA_MEDI)] <- "Not Applicable"
+
+app.data$FLOORSMIN_MEDI[is.na(app.data$FLOORSMIN_MEDI)] <- "Not Applicable"
+
+app.data$FLOORSMAX_MEDI[is.na(app.data$FLOORSMAX_MEDI)] <- "Not Applicable"
+
+app.data$ENTRANCES_MEDI[is.na(app.data$ENTRANCES_MEDI)] <- "Not Applicable"
+
+app.data$ELEVATORS_MEDI[is.na(app.data$ELEVATORS_MEDI)] <- "Not Applicable"
+
+app.data$COMMONAREA_MEDI[is.na(app.data$COMMONAREA_MEDI)] <- "Not Applicable"
+
+app.data$YEARS_BUILD_MEDI[is.na(app.data$YEARS_BUILD_MEDI)] <- "Not Applicable"
+
+app.data$YEARS_BEGINEXPLUATATION_MEDI[is.na(app.data$YEARS_BEGINEXPLUATATION_MEDI)] <- "Not Applicable"
+
+app.data$BASEMENTAREA_MEDI[is.na(app.data$BASEMENTAREA_MEDI)] <- "Not Applicable"
+
+app.data$APARTMENTS_MEDI[is.na(app.data$APARTMENTS_MEDI)] <- "Not Applicable"
+
+app.data$NONLIVINGAREA_MODE[is.na(app.data$NONLIVINGAREA_MODE)] <- "Not Applicable"
+
+app.data$NONLIVINGAPARTMENTS_MODE[is.na(app.data$NONLIVINGAPARTMENTS_MODE)] <- "Not Applicable"
+
+app.data$LIVINGAREA_MODE[is.na(app.data$LIVINGAREA_MODE)] <- "Not Applicable"
+
+app.data$LIVINGAPARTMENTS_MODE[is.na(app.data$LIVINGAPARTMENTS_MODE)] <- "Not Applicable"
+
 #PREVIOUS APP DATA CLEANING - CORI / KAYLA
 #previous application data cleaning
 library(readr)
