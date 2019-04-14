@@ -46,6 +46,11 @@ creditCard_train$CNT_INSTALMENT_MATURE_CUM <- as.factor(creditCard_train$CNT_INS
 
 summary(creditCard_train)
 
+
+
+
+
+
 #MAIN APPLIATION DATA CLEANING - PRASHANT AND GARIMA
 
 
@@ -67,7 +72,6 @@ prop.table(table(app.data$TARGET))
 ########is.na(app.data) = app.data == "NULL"
 
 #Removing NA values
-
 
 app.data$AMT_REQ_CREDIT_BUREAU_YEAR[is.na(app.data$AMT_REQ_CREDIT_BUREAU_YEAR)] = 1.0
 
@@ -141,7 +145,46 @@ app.data$REGION_RATING_CLIENT_W_CITY = as.factor(app.data$REGION_RATING_CLIENT_W
 
 str(app.data, list.len = ncol(app.data))
 
+
 #Convert NA's of Normalized variables
+
+app.data$TOTALAREA_MODE[is.na(app.data$TOTALAREA_MODE)] = 0.07
+
+app.data$NONLIVINGAREA_MEDI[is.na(app.data$NONLIVINGAREA_MEDI)] = 0
+
+app.data$NONLIVINGAPARTMENTS_MEDI[is.na(app.data$NONLIVINGAPARTMENTS_MEDI)] = 0
+
+app.data$LIVINGAREA_MEDI[is.na(app.data$LIVINGAREA_MEDI)] <- 0.07
+
+app.data$LIVINGAPARTMENTS_MEDI[is.na(app.data$LIVINGAPARTMENTS_MEDI)] = 0.08
+
+app.data$LANDAREA_MEDI[is.na(app.data$LANDAREA_MEDI)] = 0.05
+
+app.data$FLOORSMIN_MEDI[is.na(app.data$FLOORSMIN_MEDI)] = 0.21
+
+app.data$FLOORSMAX_MEDI[is.na(app.data$FLOORSMAX_MEDI)] = 0.17
+
+app.data$ENTRANCES_MEDI[is.na(app.data$ENTRANCES_MEDI)] = 0.14
+
+app.data$ELEVATORS_MEDI[is.na(app.data$ELEVATORS_MEDI)] = 0
+
+app.data$COMMONAREA_MEDI[is.na(app.data$COMMONAREA_MEDI)] = 0.02
+
+app.data$YEARS_BUILD_MEDI[is.na(app.data$YEARS_BUILD_MEDI)] = 0.76
+
+app.data$YEARS_BEGINEXPLUATATION_MEDI[is.na(app.data$YEARS_BEGINEXPLUATATION_MEDI)] = 0.98
+
+app.data$BASEMENTAREA_MEDI[is.na(app.data$BASEMENTAREA_MEDI)] = 0.08
+
+app.data$APARTMENTS_MEDI[is.na(app.data$APARTMENTS_MEDI)] = 0.09
+
+app.data$NONLIVINGAREA_MODE[is.na(app.data$NONLIVINGAREA_MODE)] = 0
+
+app.data$NONLIVINGAPARTMENTS_MODE[is.na(app.data$NONLIVINGAPARTMENTS_MODE)] = 0
+
+app.data$LIVINGAREA_MODE[is.na(app.data$LIVINGAREA_MODE)] = 0.07
+
+app.data$LIVINGAPARTMENTS_MODE[is.na(app.data$LIVINGAPARTMENTS_MODE)] = 0.08
 
 app.data$LANDAREA_MODE[is.na(app.data$LANDAREA_MODE)] = 0.05
 
@@ -196,6 +239,15 @@ app.data$EXT_SOURCE_3[is.na(app.data$EXT_SOURCE_3)] = 0.54
 app.data$EXT_SOURCE_2[is.na(app.data$EXT_SOURCE_2)] = 0.5661
   
 app.data$EXT_SOURCE_1[is.na(app.data$EXT_SOURCE_1)] = 0.51
+
+app.data$CNT_FAM_MEMBERS[is.na(app.data$CNT_FAM_MEMBERS)] = 2
+
+
+
+
+
+
+
 
 
 #PREVIOUS APP DATA CLEANING - CORI / KAYLA
