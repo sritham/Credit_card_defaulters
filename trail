@@ -1,0 +1,69 @@
+#TRAIL VERSION
+application_train_trail =  read.csv("application_train.csv", header = T, stringsAsFactors = F)
+str(application_train_trail)
+prop.table(table(application_train_trail$TARGET))
+
+application_train_trail<-application_train_trail[,-which(names(application_train_trail)=="SK_ID_CURR")]
+application_train_trail<-application_train_trail[,-which(names(application_train_trail)=="ORGANIZATION_TYPE")]
+application_train_trail$TARGET<-factor(application_train_trail$TARGET)
+chr <- application_train_trail[,sapply(application_train_trail, is.character)] 
+num <- application_train_trail[,sapply(application_train_trail, is.numeric)] 
+chr[is.na(chr)] <- "Not Available"
+num[is.na(num)] <- 0
+target = application_train_trail$TARGET
+fac<-as.data.frame(apply(chr[,1:15], 2, factor)) 
+data <- cbind(fac, num)
+data <- cbind(target,data)
+
+View(data)
+prop.table(table(data$target))
+
+####
+library(caTools)
+set.seed(1234)
+split = sample.split(data$target, SplitRatio = 4/5) 
+train = subset(data, split==TRUE)
+test = subset(data, split==FALSE)
+
+library(ROSE)
+train.both = ovun.sample(target~.,data = train, method = "both")$data
+prop.table(table(train.both$target))
+
+set.seed(1234)
+split = sample.split(train.both$target, SplitRatio = .1)
+train.split = subset(train.both, split==T)
+prop.table(table(train.split$target))
+
+#RANDOM FOREST
+#BGM
+outcomeName <- 'target'
+predictorNames <- names(train.both)[names(train.both) != outcomeName] 
+
+library (caret)
+fitControl <- trainControl(method = "none") 
+rf<-train(train.both[,predictorNames],train.both[,outcomeName],
+          method='rf',
+          trControl=fitControl)
+
+
+## OPERATE FOR A THOUSAND YEARS
+## 1 hour
+
+rfImp<-varImp(rf) 
+rfImp
+plot(rfImp)
+
+prediction<-predict(rf, test, type='raw')
+library(caret)
+confusionMatrix(prediction, test$target, positive = "1", mode="everything")
+### done
+
+library(randomForest)
+rf1 = randomForest(target~., data = train.both, importance = T)
+rfImp1<-varImp(rf) 
+rfImp1
+plot(rfImp1)
+
+prediction = predict(rf, test)
+confusionMatrix(prediction, test$target,positive = "1", mode="everything")
+varImpPlot(rf1,type=1,cex=0.5)
