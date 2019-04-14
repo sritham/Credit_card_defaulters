@@ -197,45 +197,6 @@ app.data$EXT_SOURCE_2[is.na(app.data$EXT_SOURCE_2)] = 0.5661
   
 app.data$EXT_SOURCE_1[is.na(app.data$EXT_SOURCE_1)] = 0.51
 
-#Convert character NA's into 'Not Applicable' 
-
-app.data$TOTALAREA_MODE[is.na(app.data$TOTALAREA_MODE)] <- "Not Applicable"
-
-app.data$NONLIVINGAREA_MEDI[is.na(app.data$NONLIVINGAREA_MEDI)] <- "Not Applicable"
-
-app.data$NONLIVINGAPARTMENTS_MEDI[is.na(app.data$NONLIVINGAPARTMENTS_MEDI)] <- "Not Applicable"
-
-app.data$LIVINGAREA_MEDI[is.na(app.data$LIVINGAREA_MEDI)] <- "Not Applicable"
-
-app.data$LIVINGAPARTMENTS_MEDI[is.na(app.data$LIVINGAPARTMENTS_MEDI)] <- "Not Applicable"
-
-app.data$LANDAREA_MEDI[is.na(app.data$LANDAREA_MEDI)] <- "Not Applicable"
-
-app.data$FLOORSMIN_MEDI[is.na(app.data$FLOORSMIN_MEDI)] <- "Not Applicable"
-
-app.data$FLOORSMAX_MEDI[is.na(app.data$FLOORSMAX_MEDI)] <- "Not Applicable"
-
-app.data$ENTRANCES_MEDI[is.na(app.data$ENTRANCES_MEDI)] <- "Not Applicable"
-
-app.data$ELEVATORS_MEDI[is.na(app.data$ELEVATORS_MEDI)] <- "Not Applicable"
-
-app.data$COMMONAREA_MEDI[is.na(app.data$COMMONAREA_MEDI)] <- "Not Applicable"
-
-app.data$YEARS_BUILD_MEDI[is.na(app.data$YEARS_BUILD_MEDI)] <- "Not Applicable"
-
-app.data$YEARS_BEGINEXPLUATATION_MEDI[is.na(app.data$YEARS_BEGINEXPLUATATION_MEDI)] <- "Not Applicable"
-
-app.data$BASEMENTAREA_MEDI[is.na(app.data$BASEMENTAREA_MEDI)] <- "Not Applicable"
-
-app.data$APARTMENTS_MEDI[is.na(app.data$APARTMENTS_MEDI)] <- "Not Applicable"
-
-app.data$NONLIVINGAREA_MODE[is.na(app.data$NONLIVINGAREA_MODE)] <- "Not Applicable"
-
-app.data$NONLIVINGAPARTMENTS_MODE[is.na(app.data$NONLIVINGAPARTMENTS_MODE)] <- "Not Applicable"
-
-app.data$LIVINGAREA_MODE[is.na(app.data$LIVINGAREA_MODE)] <- "Not Applicable"
-
-app.data$LIVINGAPARTMENTS_MODE[is.na(app.data$LIVINGAPARTMENTS_MODE)] <- "Not Applicable"
 
 #PREVIOUS APP DATA CLEANING - CORI / KAYLA
 #previous application data cleaning
