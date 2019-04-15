@@ -1,0 +1,31 @@
+
+
+#######################################---------COMBINING DATA-------
+scoring_data <- read.csv("new_records_for_scoring.csv")
+
+#merging
+NROW(unique(prev_app$SK_ID_PREV))
+NROW(unique(prev_app$SK_ID_CURR))
+
+NROW(unique(creditCard_train$SK_ID_PREV))
+NROW(unique(creditCard_train$SK_ID_CURR))
+
+NROW(unique((scoring_data$SK_ID_CURR)))
+
+NROW(unique(app_train$SK_ID_CURR))
+
+
+library("plyr")
+creditCard_train <- ddply(creditCard_train, "SK_ID_CURR", numcolwise(mean))
+prev_app <- ddply(prev_app, "SK_ID_CURR", numcolwise(mean))
+
+#combining data way 1
+d1 <- merge(x = app_train, y = prev_app, by = "SK_ID_CURR", all.x = T)
+d2 <- merge(x = app_train, y = creditCard_train, by = "SK_ID_CURR", all.x = T)
+
+comb_data <- merge(d1, d2, by = "SK_ID_CURR")
+
+#combining data way 2
+d3 <- merge(x = prev_app, y = creditCard_train, by = "SK_ID_CURR")
+comb_data2 <- merge(app_train, d3, by = "SK_ID_CURR", all.x = T)
+
