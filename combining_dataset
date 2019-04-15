@@ -25,7 +25,7 @@ d2 <- merge(x = app_train, y = creditCard_train, by = "SK_ID_CURR", all.x = T)
 
 comb_data <- merge(d1, d2, by = "SK_ID_CURR")
 
-#combining data way 2
+#combining data way 2 - ALTERNATE
 d3 <- merge(x = prev_app, y = creditCard_train, by = "SK_ID_CURR")
 comb_data2 <- merge(app_train, d3, by = "SK_ID_CURR", all.x = T)
 
